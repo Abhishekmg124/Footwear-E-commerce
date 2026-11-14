@@ -1,5 +1,8 @@
 
+<<<<<<< HEAD
 import { useState } from "react";
+=======
+>>>>>>> 07ffa4f4f837e474b9327a87160f26d9606b3528
 import { Link } from "react-router-dom";
 
 function Navbar({ user, onLogout, cartCount }) {
@@ -24,33 +27,59 @@ function Navbar({ user, onLogout, cartCount }) {
                 <button
                     className="navbar-toggler"
                     type="button"
+<<<<<<< HEAD
                     aria-controls="navbarContent"
                     aria-expanded={isMenuOpen}
                     aria-label="Toggle navigation"
                     onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+=======
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent"
+                    aria-controls="navbarContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+>>>>>>> 07ffa4f4f837e474b9327a87160f26d9606b3528
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
+<<<<<<< HEAD
                 {/* Navigation Links */}
                 <div
                     className={`collapse navbar-collapse${isMenuOpen ? " show" : ""}`}
+=======
+               
+                <div
+                    className="collapse navbar-collapse"
+>>>>>>> 07ffa4f4f837e474b9327a87160f26d9606b3528
                     id="navbarContent"
                 >
                     <div className="navbar-nav ms-auto align-items-lg-center gap-lg-3">
 
+<<<<<<< HEAD
                         <Link className="nav-link" to="/" onClick={closeMenu}>
                             Home
                         </Link>
 
                         <Link className="nav-link" to="/products" onClick={closeMenu}>
+=======
+                        <Link className="nav-link" to="/">
+                            Home
+                        </Link>
+
+                        <Link className="nav-link" to="/products">
+>>>>>>> 07ffa4f4f837e474b9327a87160f26d9606b3528
                             Products
                         </Link>
 
                         {user ? (
                             <>
                                 {user.role === "admin" && (
+<<<<<<< HEAD
                                     <Link className="nav-link" to="/admin" onClick={closeMenu}>
+=======
+                                    <Link className="nav-link" to="/admin">
+>>>>>>> 07ffa4f4f837e474b9327a87160f26d9606b3528
                                         Admin
                                     </Link>
                                 )}
@@ -61,27 +90,43 @@ function Navbar({ user, onLogout, cartCount }) {
 
                                 <button
                                     className="btn btn-outline-light btn-sm"
+<<<<<<< HEAD
                                     onClick={() => {
                                         closeMenu();
                                         onLogout();
                                     }}
+=======
+                                    onClick={onLogout}
+>>>>>>> 07ffa4f4f837e474b9327a87160f26d9606b3528
                                 >
                                     Logout
                                 </button>
                             </>
                         ) : (
                             <>
+<<<<<<< HEAD
                                 <Link className="nav-link" to="/login" onClick={closeMenu}>
                                     Login
                                 </Link>
 
                                 <Link className="nav-link" to="/register" onClick={closeMenu}>
+=======
+                                <Link className="nav-link" to="/login">
+                                    Login
+                                </Link>
+
+                                <Link className="nav-link" to="/register">
+>>>>>>> 07ffa4f4f837e474b9327a87160f26d9606b3528
                                     Register
                                 </Link>
                             </>
                         )}
 
+<<<<<<< HEAD
                         <Link className="nav-link cart-link" to="/cart" onClick={closeMenu}>
+=======
+                        <Link className="nav-link cart-link" to="/cart">
+>>>>>>> 07ffa4f4f837e474b9327a87160f26d9606b3528
                             Cart
                             <span className="cart-count">{cartCount}</span>
                         </Link>
