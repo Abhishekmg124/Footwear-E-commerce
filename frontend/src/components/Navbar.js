@@ -1,7 +1,12 @@
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar({ user, onLogout, cartCount }) {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const closeMenu = () => setIsMenuOpen(false);
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top custom-navbar">
             <div className="container">
@@ -19,34 +24,33 @@ function Navbar({ user, onLogout, cartCount }) {
                 <button
                     className="navbar-toggler"
                     type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarContent"
                     aria-controls="navbarContent"
-                    aria-expanded="false"
+                    aria-expanded={isMenuOpen}
                     aria-label="Toggle navigation"
+                    onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
                 {/* Navigation Links */}
                 <div
-                    className="collapse navbar-collapse"
+                    className={`collapse navbar-collapse${isMenuOpen ? " show" : ""}`}
                     id="navbarContent"
                 >
                     <div className="navbar-nav ms-auto align-items-lg-center gap-lg-3">
 
-                        <Link className="nav-link" to="/">
+                        <Link className="nav-link" to="/" onClick={closeMenu}>
                             Home
                         </Link>
 
-                        <Link className="nav-link" to="/products">
+                        <Link className="nav-link" to="/products" onClick={closeMenu}>
                             Products
                         </Link>
 
                         {user ? (
                             <>
                                 {user.role === "admin" && (
-                                    <Link className="nav-link" to="/admin">
+                                    <Link className="nav-link" to="/admin" onClick={closeMenu}>
                                         Admin
                                     </Link>
                                 )}
@@ -57,24 +61,27 @@ function Navbar({ user, onLogout, cartCount }) {
 
                                 <button
                                     className="btn btn-outline-light btn-sm"
-                                    onClick={onLogout}
+                                    onClick={() => {
+                                        closeMenu();
+                                        onLogout();
+                                    }}
                                 >
                                     Logout
                                 </button>
                             </>
                         ) : (
                             <>
-                                <Link className="nav-link" to="/login">
+                                <Link className="nav-link" to="/login" onClick={closeMenu}>
                                     Login
                                 </Link>
 
-                                <Link className="nav-link" to="/register">
+                                <Link className="nav-link" to="/register" onClick={closeMenu}>
                                     Register
                                 </Link>
                             </>
                         )}
 
-                        <Link className="nav-link cart-link" to="/cart">
+                        <Link className="nav-link cart-link" to="/cart" onClick={closeMenu}>
                             Cart
                             <span className="cart-count">{cartCount}</span>
                         </Link>
