@@ -1,0 +1,81 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start footwear frontend",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"start",
+				"--prefix",
+				"frontend"
+			],
+			"isBackground": true,
+			"problemMatcher": [
+				"$eslint-stylish"
+			]
+		},
+		{
+			"label": "Start footwear frontend via npm.cmd",
+			"type": "shell",
+			"command": "npm.cmd",
+			"args": [
+				"start",
+				"--prefix",
+				"frontend"
+			],
+			"isBackground": true,
+			"problemMatcher": [
+				"$eslint-stylish"
+			]
+		},
+		{
+			"label": "Start footwear frontend with cmd",
+			"type": "shell",
+			"command": "cmd.exe",
+			"args": [
+				"/c",
+				"npm.cmd start --prefix frontend"
+			],
+			"isBackground": true,
+			"problemMatcher": [
+				"$eslint-stylish"
+			]
+		},
+		{
+			"label": "Run React dev server directly",
+			"type": "shell",
+			"command": "node.exe",
+			"args": [
+				"-e",
+				"process.chdir('frontend');require('./node_modules/react-scripts/scripts/start.js')"
+			],
+			"isBackground": true,
+			"problemMatcher": [
+				"$eslint-stylish"
+			]
+		},
+		{
+			"label": "Start footwear API",
+			"type": "shell",
+			"command": "node.exe",
+			"args": [
+				"-e",
+				"process.chdir('backend'),require('./server.js')"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run footwear backend",
+			"type": "shell",
+			"command": "cmd.exe",
+			"args": [
+				"/c",
+				"cd /d C:\\Footwear-E-commerce\\backend && node server.js"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
